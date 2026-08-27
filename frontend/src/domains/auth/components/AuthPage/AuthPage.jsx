@@ -50,7 +50,6 @@ export default function AuthPage() {
     queryKey: queryKeys.auth.me(),
     queryFn: getMe,
     retry: false,
-    refetchOnWindowFocus: false,
   });
 
   const isUserCreated = Boolean(
@@ -58,7 +57,7 @@ export default function AuthPage() {
     usersQuery.data?.some((user) => user.email === createdEmail),
   );
 
-  const apiStatusText = healthQuery.isLoading
+  const apiStatusText = healthQuery.isPending
     ? "백엔드 상태를 확인하는 중입니다."
     : healthQuery.isError
       ? "백엔드 연결 실패"

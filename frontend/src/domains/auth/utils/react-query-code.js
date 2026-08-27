@@ -4,7 +4,6 @@ const LOGIN_REACT_QUERY_CODE = `const meQuery = useQuery({
   queryKey: queryKeys.auth.me(),
   queryFn: getMe,
   retry: false,
-  refetchOnWindowFocus: false,
 });
 
 const loginMutation = useMutation({
