@@ -4,7 +4,7 @@ Next.js 16(App Router) + React Query 기반 인증 프론트엔드입니다.
 
 ## 사전 요구 사항
 
-- Node.js `26.7.0`
+- Node.js `24.20.0` LTS
 - `pnpm`
 - 백엔드 서버 실행 중 (`http://localhost:5001`)
 

@@ -4,7 +4,7 @@ Express + Prisma 기반 인증 API 서버입니다.
 
 ## 사전 요구 사항
 
-- Node.js `26.7.0`
+- Node.js `24.20.0` LTS
 - `npm` (Node.js에 포함)
 - PostgreSQL
 

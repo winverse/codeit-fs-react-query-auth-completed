@@ -4,7 +4,7 @@ React Query + Next.js 16(App Router) 프론트엔드와 Express + Prisma 백엔�
 
 ## 사전 요구 사항
 
-- Node.js `26.7.0`
+- Node.js `24.20.0` LTS
 - `pnpm` (프론트엔드)
 - `npm` (백엔드, Node.js에 포함)
 - PostgreSQL
