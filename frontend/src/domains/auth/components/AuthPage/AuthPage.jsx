@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getMe, getUsers, checkBackendHealth } from "@/lib/api";
+import { getMe } from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 import * as styles from "./AuthPage.css.js";
 import Button from "@/components/Button";
@@ -9,7 +9,6 @@ import AuthHero from "@/domains/auth/components/AuthHero";
 import AuthModeSwitch from "@/domains/auth/components/AuthModeSwitch";
 import LoginForm from "@/domains/auth/components/LoginForm";
 import SignUpForm from "@/domains/auth/components/SignUpForm";
-import UserListSection from "@/domains/auth/components/UserListSection";
 import useAuthPage from "@/domains/auth/hooks/useAuthPage";
 import { AUTH_MODE } from "@/domains/auth/utils/constants";
 
@@ -18,7 +17,6 @@ export default function AuthPage() {
     mode,
     formError,
     formSuccess,
-    createdEmail,
     signUpForm,
     loginForm,
     signUpErrors,
@@ -34,40 +32,19 @@ export default function AuthPage() {
     handleLoginSubmit,
   } = useAuthPage();
 
-  const usersQuery = useQuery({
-    queryKey: queryKeys.users.list(),
-    queryFn: getUsers,
-  });
-
-  const healthQuery = useQuery({
-    queryKey: queryKeys.backend.health(),
-    queryFn: checkBackendHealth,
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
-
   const meQuery = useQuery({
     queryKey: queryKeys.auth.me(),
     queryFn: getMe,
-    retry: false,
   });
 
-  const isUserCreated = Boolean(
-    createdEmail &&
-    usersQuery.data?.some((user) => user.email === createdEmail),
-  );
-
-  const apiStatusText = healthQuery.isPending
-    ? "백엔드 상태를 확인하는 중입니다."
-    : healthQuery.isError
-      ? "백엔드 연결 실패"
-      : "백엔드 연결 정상";
+  const isAuthenticated = meQuery.isSuccess && meQuery.data !== null;
+  const shouldShowAuthModeSwitch = meQuery.isSuccess && !isAuthenticated;
 
   const authStatusText = meQuery.isPending
     ? "로그인 상태 확인 중"
     : meQuery.isError
       ? "로그인 상태 확인 실패"
-      : meQuery.data
+      : isAuthenticated
         ? `${meQuery.data.email} 로그인됨`
         : "비로그인";
 
@@ -92,36 +69,36 @@ export default function AuthPage() {
     ),
   };
 
-  const isAuthenticated = meQuery.isSuccess && meQuery.data !== null;
-  const shouldShowAuthModeSwitch = meQuery.isSuccess && !isAuthenticated;
+  let authContent =
+    authFormContentByMode[mode] ?? authFormContentByMode[AUTH_MODE.LOGIN];
 
-  const loggedInContent = isAuthenticated ? (
-    <div className={styles.authInfoBox}>
-      <p className={styles.authInfoText}>
-        현재 <strong>{meQuery.data.email}</strong>로 로그인되어 있습니다.
+  if (meQuery.isPending) {
+    authContent = (
+      <p className={styles.authInfoText}>로그인 상태를 확인하는 중입니다.</p>
+    );
+  } else if (meQuery.isError) {
+    authContent = (
+      <p className={styles.formError}>
+        로그인 상태를 확인하지 못했습니다. 잠시 후 다시 시도해 주세요.
       </p>
-      <Button
-        type="button"
-        variant="ghost"
-        disabled={logoutMutation.isPending}
-        onClick={handleLogout}
-      >
-        {logoutMutation.isPending ? "처리 중..." : "로그아웃"}
-      </Button>
-    </div>
-  ) : null;
-
-  const authPanelContent = meQuery.isPending ? (
-    <p className={styles.authInfoText}>로그인 상태를 확인하는 중입니다.</p>
-  ) : meQuery.isError ? (
-    <p className={styles.formError}>
-      로그인 상태를 확인하지 못했습니다. 잠시 후 다시 시도해 주세요.
-    </p>
-  ) : isAuthenticated ? (
-    loggedInContent
-  ) : (
-    (authFormContentByMode[mode] ?? authFormContentByMode[AUTH_MODE.LOGIN])
-  );
+    );
+  } else if (isAuthenticated) {
+    authContent = (
+      <div className={styles.authInfoBox}>
+        <p className={styles.authInfoText}>
+          현재 <strong>{meQuery.data.email}</strong>로 로그인되어 있습니다.
+        </p>
+        <Button
+          type="button"
+          variant="ghost"
+          disabled={logoutMutation.isPending}
+          onClick={handleLogout}
+        >
+          {logoutMutation.isPending ? "처리 중..." : "로그아웃"}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <main className={styles.page}>
@@ -129,14 +106,9 @@ export default function AuthPage() {
       <div className={styles.backdropCircleTwo} />
 
       <AuthHero
-        mode={mode}
-        apiStatusText={apiStatusText}
-        isApiError={healthQuery.isError}
         authStatusText={authStatusText}
         isAuthError={meQuery.isError}
         isAuthenticated={isAuthenticated}
-        createdEmail={createdEmail}
-        isUserCreated={isUserCreated}
       />
 
       <section className={styles.panel}>
@@ -150,9 +122,7 @@ export default function AuthPage() {
           <p className={styles.formSuccess}>{formSuccess}</p>
         ) : null}
 
-        {authPanelContent}
-
-        <UserListSection usersQuery={usersQuery} createdEmail={createdEmail} />
+        {authContent}
       </section>
     </main>
   );

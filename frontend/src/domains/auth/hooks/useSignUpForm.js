@@ -9,7 +9,6 @@ export default function useSignUpForm({
   signUpMutation,
   setFormError,
   setFormSuccess,
-  setCreatedEmail,
 }) {
   const [signUpForm, setSignUpForm] = useState(() => ({
     ...AUTH_INITIAL_SIGN_UP_FORM,
@@ -58,7 +57,6 @@ export default function useSignUpForm({
 
     signUpMutation.mutate(payload, {
       onSuccess: (createdUser) => {
-        setCreatedEmail(createdUser.email);
         setFormSuccess(`회원가입 완료: ${createdUser.email}`);
         resetSignUpFormState();
       },

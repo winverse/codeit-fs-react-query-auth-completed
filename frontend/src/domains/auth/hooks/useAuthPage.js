@@ -8,7 +8,6 @@ export default function useAuthPage() {
   const [mode, setMode] = useState(AUTH_MODE.SIGN_UP);
   const [formError, setFormError] = useState("");
   const [formSuccess, setFormSuccess] = useState("");
-  const [createdEmail, setCreatedEmail] = useState("");
 
   const { signUpMutation, loginMutation, logoutMutation } = useAuthMutations();
 
@@ -22,7 +21,6 @@ export default function useAuthPage() {
     signUpMutation,
     setFormError,
     setFormSuccess,
-    setCreatedEmail,
   });
 
   const {
@@ -64,7 +62,6 @@ export default function useAuthPage() {
     mode,
     formError,
     formSuccess,
-    createdEmail,
     signUpForm,
     loginForm,
     signUpErrors,

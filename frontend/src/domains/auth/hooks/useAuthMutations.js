@@ -7,11 +7,8 @@ export default function useAuthMutations() {
 
   const signUpMutation = useMutation({
     mutationFn: signUp,
-    onSuccess: async (createdUser) => {
+    onSuccess: (createdUser) => {
       queryClient.setQueryData(queryKeys.auth.me(), createdUser);
-      await queryClient.invalidateQueries({
-        queryKey: queryKeys.users.list(),
-      });
     },
   });
 
@@ -20,18 +17,12 @@ export default function useAuthMutations() {
     onSuccess: (loggedInUser) => {
       queryClient.setQueryData(queryKeys.auth.me(), loggedInUser);
     },
-    onError: async () => {
-      await queryClient.invalidateQueries({ queryKey: queryKeys.auth.me() });
-    },
   });
 
   const logoutMutation = useMutation({
     mutationFn: logout,
     onSuccess: () => {
       queryClient.setQueryData(queryKeys.auth.me(), null);
-    },
-    onSettled: async () => {
-      await queryClient.invalidateQueries({ queryKey: queryKeys.auth.me() });
     },
   });
 

@@ -19,34 +19,8 @@ export const kicker = style({
   fontWeight: 700,
 });
 
-export const title = style({
-  fontSize: "clamp(30px, 4vw, 56px)",
-  lineHeight: 1.08,
-  letterSpacing: "-0.02em",
-  color: "var(--color-text-primary)",
-});
-
-export const description = style({
-  marginTop: 20,
-  maxWidth: 640,
-  fontSize: "clamp(15px, 1.2vw, 18px)",
-  lineHeight: 1.75,
-  color: "var(--color-text-secondary)",
-});
-
-export const statusGrid = style({
-  marginTop: 28,
-  display: "grid",
-  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-  gap: 12,
-  "@media": {
-    "(max-width: 1080px)": {
-      gridTemplateColumns: "1fr",
-    },
-  },
-});
-
 export const statusCard = style({
+  marginTop: 28,
   borderRadius: 18,
   padding: 18,
   background: "rgba(255, 255, 255, 0.86)",
@@ -75,8 +49,4 @@ export const statusError = style({
 
 export const statusSuccess = style({
   color: "var(--color-primary-700)",
-});
-
-export const statusIdle = style({
-  color: "rgba(51, 65, 85, 0.9)",
 });
