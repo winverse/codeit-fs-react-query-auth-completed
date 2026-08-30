@@ -1,0 +1,9 @@
+allowBuilds:
+  '@prisma/engines': true
+  bcrypt: true
+  prisma: true
+
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - bcrypt
+  - prisma

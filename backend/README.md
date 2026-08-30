@@ -4,14 +4,14 @@ Express + Prisma 기반 인증 API 서버입니다.
 
 ## 사전 요구 사항
 
-- Node.js `24.20.0` LTS
-- `npm` (Node.js에 포함)
+- Node.js
+- `pnpm`
 - PostgreSQL
 
 ## 빠른 시작
 
 ```bash
-npm ci
+pnpm install
 cp env/.env.example env/.env.development
 ```
 
@@ -60,14 +60,14 @@ DATABASE_URL=
 초기 DB 준비:
 
 ```bash
-npm run prisma:generate
-npm run prisma:migrate
+pnpm prisma:generate
+pnpm prisma:migrate
 ```
 
 개발 서버 실행:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 - 기본 주소: `http://localhost:5001`
@@ -75,12 +75,12 @@ npm run dev
 ## 주요 스크립트
 
 ```bash
-npm run dev             # 개발 서버 실행 (.env.development)
-npm run prisma:generate # Prisma Client 생성
-npm run prisma:migrate  # 개발 마이그레이션
-npm run prisma:studio   # Prisma Studio 실행
-npm run seed            # 시드 데이터 입력
-npm run lint            # ESLint
-npm run format          # Prettier 포맷
-npm run format:check    # Prettier 포맷 검사
+pnpm dev             # 개발 서버 실행 (.env.development)
+pnpm prisma:generate # Prisma Client 생성
+pnpm prisma:migrate  # 개발 마이그레이션
+pnpm prisma:studio   # Prisma Studio 실행
+pnpm seed            # 시드 데이터 입력
+pnpm lint            # ESLint
+pnpm format          # Prettier 포맷
+pnpm format:check    # Prettier 포맷 검사
 ```

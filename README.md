@@ -1,24 +1,23 @@
 # React Query Auth Project
 
-React Query + Next.js 16(App Router) 프론트엔드와 Express + Prisma 백엔드로 구성된 인증 예제 프로젝트입니다.
+React Query + Next.js(App Router) 프론트엔드와 Express + Prisma 백엔드로 구성된 인증 예제 프로젝트입니다.
 
 ## 사전 요구 사항
 
-- Node.js `24.20.0` LTS
-- `pnpm` (프론트엔드)
-- `npm` (백엔드, Node.js에 포함)
+- Node.js
+- `pnpm`
 - PostgreSQL
 
 ## 디렉터리 구성
 
 - `backend`: Express + Prisma API 서버
-- `frontend`: Next.js 16 + React Query 클라이언트
+- `frontend`: Next.js + React Query 클라이언트
 
 ## 1. 백엔드 실행
 
 ```bash
 cd backend
-npm ci
+pnpm install
 cp env/.env.example env/.env.development
 ```
 
@@ -67,14 +66,14 @@ DATABASE_URL=
 초기 DB 준비:
 
 ```bash
-npm run prisma:generate
-npm run prisma:migrate
+pnpm prisma:generate
+pnpm prisma:migrate
 ```
 
 개발 서버 실행:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 - Backend URL: `http://localhost:5001`
@@ -101,6 +100,6 @@ pnpm dev
 
 ## 3. 전체 실행 순서
 
-1. `backend`에서 `npm run dev` 실행
+1. `backend`에서 `pnpm dev` 실행
 2. `frontend`에서 `pnpm dev` 실행
 3. 브라우저에서 `http://localhost:3000` 접속
