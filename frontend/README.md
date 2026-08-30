@@ -25,7 +25,7 @@ cp .env.example .env.development
 3. `NEXT_PUBLIC_BACKEND_BASE_URL` 확인
 
 ```env
-NEXT_PUBLIC_BACKEND_BASE_URL=
+NEXT_PUBLIC_BACKEND_BASE_URL=http://localhost:5001
 ```
 
 - `/api` 경로는 프론트 요청 유틸에서 자동으로 붙습니다.
@@ -45,10 +45,9 @@ pnpm dev
 
 ## 주요 기능
 
-- `useQuery`로 `auth/me`, 사용자 목록, 백엔드 헬스 상태 조회
+- `useQuery`로 현재 로그인 사용자 조회
 - `useMutation`으로 회원가입/로그인/로그아웃 처리
-- `setQueryData` + `invalidateQueries` 조합으로 캐시 동기화
-- 라우트 에러 경계(`src/app/error.js`) + 공통 에러 UI(`AppError`)
+- `setQueryData`로 인증 캐시 동기화
 
 ## 주요 스크립트
 
