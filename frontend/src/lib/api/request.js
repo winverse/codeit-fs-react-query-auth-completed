@@ -7,10 +7,6 @@ const BACKEND_BASE_URL =
   process.env.NEXT_PUBLIC_BACKEND_BASE_URL ?? "http://localhost:5001";
 const API_PREFIX = "/api";
 
-/**
- * URL 끝에 있는 슬래시(/)를 제거하여 경로 결합 시 중복 슬래시(//)를 방지합니다.
- * 예: "http://api.server.com/" -> "http://api.server.com"
- */
 function normalizeBaseUrl(url) {
   return url.replace(/\/+$/, "");
 }
@@ -24,9 +20,7 @@ export async function request(path, options = {}) {
 
   const response = await fetch(buildBackendApiUrl(path), {
     method,
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     credentials: "include",
     cache,
     body: body ? JSON.stringify(body) : undefined,
