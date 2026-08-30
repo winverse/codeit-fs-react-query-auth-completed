@@ -34,35 +34,6 @@ export const description = style({
   color: "var(--color-text-secondary)",
 });
 
-export const codePanel = style({
-  marginTop: 18,
-  borderRadius: 18,
-  padding: 18,
-  background: "rgba(15, 23, 42, 0.92)",
-  border: "1px solid rgba(37, 99, 235, 0.26)",
-  boxShadow: "0 18px 40px rgba(15, 23, 42, 0.18)",
-});
-
-export const codeTitle = style({
-  fontSize: 12,
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
-  color: "rgba(191, 219, 254, 0.92)",
-  fontWeight: 800,
-});
-
-export const codeBlock = style({
-  marginTop: 12,
-  overflowX: "auto",
-  WebkitOverflowScrolling: "touch",
-  fontFamily:
-    'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-  fontSize: 13,
-  lineHeight: 1.65,
-  color: "rgba(226, 232, 240, 0.92)",
-  whiteSpace: "pre",
-});
-
 export const statusGrid = style({
   marginTop: 28,
   display: "grid",

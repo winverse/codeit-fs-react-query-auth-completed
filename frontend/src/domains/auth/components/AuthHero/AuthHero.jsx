@@ -1,7 +1,6 @@
 import { clsx } from "clsx";
 import * as styles from "./AuthHero.css.js";
 import { AUTH_MODE } from "@/domains/auth/utils/constants";
-import { getReactQueryCode } from "@/domains/auth/utils/react-query-code";
 
 export default function AuthHero({
   mode,
@@ -13,8 +12,6 @@ export default function AuthHero({
   createdEmail,
   isUserCreated,
 }) {
-  const reactQueryCode = getReactQueryCode(mode);
-
   const createdUserText = createdEmail
     ? isUserCreated
       ? `${createdEmail} 생성 확인 완료`
@@ -38,14 +35,7 @@ export default function AuthHero({
 
   return (
     <section className={styles.hero}>
-      <p className={styles.kicker}>23. React Query Auth</p>
-
-      <div className={styles.codePanel}>
-        <p className={styles.codeTitle}>현재 모드에서 사용하는 훅</p>
-        <pre className={styles.codeBlock}>
-          <code>{reactQueryCode}</code>
-        </pre>
-      </div>
+      <p className={styles.kicker}>30. React Query Auth</p>
 
       <div className={styles.statusGrid}>
         <article className={styles.statusCard}>
