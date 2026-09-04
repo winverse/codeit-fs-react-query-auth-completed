@@ -1,7 +1,7 @@
 "use client";
 
-import TextField from "@/components/TextField";
-import Button from "@/components/Button";
+import { TextField } from "@/components/TextField";
+import { Button } from "@/components/Button";
 import * as styles from "./SignUpForm.css.js";
 
 export default function SignUpForm({

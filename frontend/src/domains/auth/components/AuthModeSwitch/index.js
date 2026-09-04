@@ -1,1 +1,1 @@
-export { default } from "./AuthModeSwitch.jsx";
+export { default as AuthModeSwitch } from "./AuthModeSwitch.jsx";

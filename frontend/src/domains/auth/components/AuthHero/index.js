@@ -1,1 +1,1 @@
-export { default } from "./AuthHero.jsx";
+export { default as AuthHero } from "./AuthHero.jsx";
