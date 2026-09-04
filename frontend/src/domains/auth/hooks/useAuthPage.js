@@ -45,6 +45,7 @@ export default function useAuthPage() {
 
   const handleLogout = () => {
     setFormError("");
+    setFormSuccess("");
 
     logoutMutation.mutate(undefined, {
       onSuccess: () => {

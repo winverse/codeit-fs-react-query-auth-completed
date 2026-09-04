@@ -26,6 +26,7 @@ export default function useLoginForm({
     const { name, value } = event.target;
 
     setFormError((prev) => (prev ? "" : prev));
+    setFormSuccess((prev) => (prev ? "" : prev));
     setLoginErrors((prev) => {
       if (!prev[name]) {
         return prev;
