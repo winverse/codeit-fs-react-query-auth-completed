@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import * as styles from "./AuthModeSwitch.css.js";
-import { AUTH_MODE } from "@/domains/auth/utils/constants";
+import { AUTH_MODE } from "@/features/auth/utils/constants";
 
 export default function AuthModeSwitch({ mode, onChange }) {
   return (

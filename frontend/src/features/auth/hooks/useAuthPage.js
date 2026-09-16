@@ -1,8 +1,8 @@
 import { useState } from "react";
-import useAuthMutations from "@/domains/auth/hooks/use-auth-mutations";
-import { AUTH_MODE } from "@/domains/auth/utils/constants";
-import useSignUpForm from "@/domains/auth/hooks/use-sign-up-form";
-import useLoginForm from "@/domains/auth/hooks/use-login-form";
+import useAuthMutations from "@/features/auth/hooks/use-auth-mutations";
+import { AUTH_MODE } from "@/features/auth/utils/constants";
+import useSignUpForm from "@/features/auth/hooks/use-sign-up-form";
+import useLoginForm from "@/features/auth/hooks/use-login-form";
 
 export default function useAuthPage() {
   const [mode, setMode] = useState(AUTH_MODE.SIGN_UP);

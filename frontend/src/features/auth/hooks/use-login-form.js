@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { AUTH_INITIAL_LOGIN_FORM } from "@/domains/auth/utils/constants";
+import { AUTH_INITIAL_LOGIN_FORM } from "@/features/auth/utils/constants";
 import {
   createEmptyLoginErrors,
   validateLoginForm,
-} from "@/domains/auth/utils/validation";
+} from "@/features/auth/utils/validation";
 
 export default function useLoginForm({
   loginMutation,

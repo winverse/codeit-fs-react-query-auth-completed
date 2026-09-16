@@ -5,12 +5,12 @@ import { getMe } from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 import { Button } from "@/components/Button";
 import * as styles from "./AuthPage.css.js";
-import { AuthHero } from "@/domains/auth/components/AuthHero";
-import { AuthModeSwitch } from "@/domains/auth/components/AuthModeSwitch";
-import { LoginForm } from "@/domains/auth/components/LoginForm";
-import { SignUpForm } from "@/domains/auth/components/SignUpForm";
-import useAuthPage from "@/domains/auth/hooks/useAuthPage";
-import { AUTH_MODE } from "@/domains/auth/utils/constants";
+import { AuthHero } from "@/features/auth/components/AuthHero";
+import { AuthModeSwitch } from "@/features/auth/components/AuthModeSwitch";
+import { LoginForm } from "@/features/auth/components/LoginForm";
+import { SignUpForm } from "@/features/auth/components/SignUpForm";
+import useAuthPage from "@/features/auth/hooks/useAuthPage";
+import { AUTH_MODE } from "@/features/auth/utils/constants";
 
 export default function AuthPage() {
   const {

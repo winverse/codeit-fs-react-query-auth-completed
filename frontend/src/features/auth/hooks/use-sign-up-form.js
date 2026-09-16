@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { AUTH_INITIAL_SIGN_UP_FORM } from "@/domains/auth/utils/constants";
+import { AUTH_INITIAL_SIGN_UP_FORM } from "@/features/auth/utils/constants";
 import {
   createEmptySignUpErrors,
   validateSignUpForm,
-} from "@/domains/auth/utils/validation";
+} from "@/features/auth/utils/validation";
 
 export default function useSignUpForm({
   signUpMutation,
