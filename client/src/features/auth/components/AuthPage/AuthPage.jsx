@@ -9,7 +9,7 @@ import { AuthHero } from "@/features/auth/components/AuthHero";
 import { AuthModeSwitch } from "@/features/auth/components/AuthModeSwitch";
 import { LoginForm } from "@/features/auth/components/LoginForm";
 import { SignUpForm } from "@/features/auth/components/SignUpForm";
-import useAuthPage from "@/features/auth/hooks/useAuthPage";
+import useAuthPage from "@/features/auth/hooks/use-auth-page";
 import { AUTH_MODE } from "@/features/auth/utils/constants";
 
 export default function AuthPage() {
