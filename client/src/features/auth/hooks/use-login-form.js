@@ -27,17 +27,10 @@ export default function useLoginForm({
 
     setFormError((prev) => (prev ? "" : prev));
     setFormSuccess((prev) => (prev ? "" : prev));
-    setLoginErrors((prev) => {
-      if (!prev[name]) {
-        return prev;
-      }
-
-      return {
-        ...prev,
-        [name]: "",
-      };
-    });
-
+    setLoginErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
     setLoginForm((prev) => ({
       ...prev,
       [name]: value,

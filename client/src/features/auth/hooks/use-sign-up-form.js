@@ -27,17 +27,10 @@ export default function useSignUpForm({
 
     setFormError((prev) => (prev ? "" : prev));
     setFormSuccess((prev) => (prev ? "" : prev));
-    setSignUpErrors((prev) => {
-      if (!prev[name]) {
-        return prev;
-      }
-
-      return {
-        ...prev,
-        [name]: "",
-      };
-    });
-
+    setSignUpErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
     setSignUpForm((prev) => ({
       ...prev,
       [name]: value,
