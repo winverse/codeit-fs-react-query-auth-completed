@@ -1,5 +1,5 @@
 {
-  "name": "prisma-blog",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "./src/server.js",
