@@ -20,7 +20,7 @@ pnpm --dir client dev
 
 ## 서버 연결
 
-- 브라우저에서 서버를 직접 호출합니다. 기본 주소는 `http://localhost:5001`이며 `/api` 경로는 프론트 요청 유틸에서 자동으로 붙습니다.
+브라우저에서 서버를 직접 호출합니다. 기본 주소는 `http://localhost:5001`이며, 요청 함수(`src/lib/api/request.js`)가 주소 뒤에 `/api` 경로를 붙입니다.
 
 ## 주요 기능
 
