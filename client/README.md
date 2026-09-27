@@ -6,7 +6,7 @@ Next.js(App Router) + React Query 기반 인증 프론트엔드입니다.
 
 - Node.js
 - `pnpm`
-- 백엔드 서버 실행 중 (`http://localhost:5001`)
+- 서버 실행 중 (`http://localhost:5001`)
 
 ## 실행 방법
 
@@ -18,11 +18,9 @@ pnpm --dir client dev
 
 - 기본 URL: `http://localhost:3000`
 
-## 백엔드 연결
+## 서버 연결
 
-- 브라우저에서 백엔드를 직접 호출합니다. 기본 주소는 `http://localhost:5001`이며 `/api` 경로는 프론트 요청 유틸에서 자동으로 붙습니다.
-- 환경 변수 파일 없이 기본 주소로 요청합니다. 서버 주소를 바꾼 경우에만 `.env.example`을 `.env.development`로 복사해 `NEXT_PUBLIC_BACKEND_BASE_URL`을 맞춥니다.
-- 백엔드에서 CORS(`origin`, `credentials`) 설정이 필요합니다.
+- 브라우저에서 서버를 직접 호출합니다. 기본 주소는 `http://localhost:5001`이며 `/api` 경로는 프론트 요청 유틸에서 자동으로 붙습니다.
 
 ## 주요 기능
 
