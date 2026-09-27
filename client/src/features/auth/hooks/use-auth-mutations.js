@@ -5,6 +5,7 @@ import { queryKeys } from "@/lib/query-keys";
 export default function useAuthMutations() {
   const queryClient = useQueryClient();
 
+  // 1. 회원가입 mutation
   const signUpMutation = useMutation({
     mutationFn: signUp,
     onSuccess: (createdUser) => {
@@ -12,6 +13,7 @@ export default function useAuthMutations() {
     },
   });
 
+  // 2. 로그인 mutation
   const loginMutation = useMutation({
     mutationFn: login,
     onSuccess: (loggedInUser) => {
@@ -19,6 +21,7 @@ export default function useAuthMutations() {
     },
   });
 
+  // 3. 로그아웃 mutation
   const logoutMutation = useMutation({
     mutationFn: logout,
     onSuccess: () => {

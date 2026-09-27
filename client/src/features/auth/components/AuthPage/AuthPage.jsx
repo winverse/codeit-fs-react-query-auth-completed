@@ -32,14 +32,17 @@ export default function AuthPage() {
     handleLoginSubmit,
   } = useAuthPage();
 
+  // 1. 현재 로그인한 사용자를 조회합니다.
   const meQuery = useQuery({
     queryKey: queryKeys.auth.me(),
     queryFn: getMe,
   });
 
+  // 2. 조회 결과로 로그인 여부와 전환 버튼 표시 여부를 정합니다.
   const isAuthenticated = meQuery.isSuccess && meQuery.data !== null;
   const shouldShowAuthModeSwitch = meQuery.isSuccess && !isAuthenticated;
 
+  // 3. 카드에 표시할 문구를 정합니다.
   const authStatusText = meQuery.isPending
     ? "로그인 상태 확인 중"
     : meQuery.isError
@@ -69,6 +72,7 @@ export default function AuthPage() {
     ),
   };
 
+  // 4. 패널에 표시할 내용을 정합니다.
   let authContent =
     authFormContentByMode[mode] ?? authFormContentByMode[AUTH_MODE.LOGIN];
 
@@ -100,6 +104,7 @@ export default function AuthPage() {
     );
   }
 
+  // 5. 카드와 패널에 조회 결과를 표시합니다.
   return (
     <main className={styles.page}>
       <div className={styles.backdropCircleOne} />
