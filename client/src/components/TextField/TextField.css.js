@@ -6,42 +6,47 @@ export const field = style({
 });
 
 export const label = style({
-  fontSize: 13,
-  color: "rgba(30, 41, 59, 0.72)",
-  fontWeight: 700,
+  fontSize: 14,
+  fontWeight: 500,
+  color: "var(--color-grey-700)",
 });
 
 export const input = style({
-  height: 46,
-  borderRadius: 12,
-  border: "1px solid rgba(148, 163, 184, 0.42)",
-  background: "#ffffff",
-  padding: "0 14px",
-  fontSize: 14,
-  color: "rgba(15, 23, 42, 0.9)",
+  height: 54,
+  borderRadius: 14,
+  border: 0,
+  background: "var(--color-grey-100)",
+  padding: "0 16px",
+  fontSize: 16,
+  fontWeight: 500,
+  color: "var(--color-grey-900)",
   outline: "none",
-  transition: "border-color 140ms ease, box-shadow 140ms ease",
+  transition: "background-color 150ms ease, box-shadow 150ms ease",
   selectors: {
+    "&::placeholder": {
+      color: "var(--color-grey-400)",
+      fontWeight: 400,
+    },
     "&:focus": {
-      borderColor: "var(--color-primary-500)",
-      boxShadow: "0 0 0 4px rgba(37, 99, 235, 0.18)",
+      background: "var(--color-surface)",
+      boxShadow: "inset 0 0 0 2px var(--color-primary-500)",
     },
   },
 });
 
 export const inputInvalid = style({
-  borderColor: "rgba(185, 28, 28, 0.55)",
+  background: "var(--color-surface)",
+  boxShadow: "inset 0 0 0 1.5px var(--color-danger-500)",
   selectors: {
     "&:focus": {
-      borderColor: "rgba(185, 28, 28, 0.8)",
-      boxShadow: "0 0 0 4px rgba(185, 28, 28, 0.14)",
+      boxShadow: "inset 0 0 0 2px var(--color-danger-500)",
     },
   },
 });
 
 export const errorText = style({
-  marginTop: 6,
-  fontSize: 12,
+  fontSize: 13,
+  fontWeight: 500,
   lineHeight: 1.4,
-  color: "rgba(185, 28, 28, 0.95)",
+  color: "var(--color-danger-500)",
 });

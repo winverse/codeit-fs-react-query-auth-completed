@@ -9,6 +9,11 @@ export default function AuthHero({
   return (
     <section className={styles.hero}>
       <p className={styles.kicker}>30. React Query Auth</p>
+      <h1 className={styles.title}>
+        React Query로 만드는
+        <br />
+        회원가입과 로그인
+      </h1>
 
       <article className={styles.statusCard}>
         <h2 className={styles.statusCardTitle}>로그인 상태</h2>

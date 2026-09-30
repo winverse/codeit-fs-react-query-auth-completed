@@ -1,16 +1,12 @@
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
-import { clsx } from "clsx";
+import localFont from "next/font/local";
 import "@/styles/globals.css.js";
 import AppProviders from "@/providers/AppProviders";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
+const pretendard = localFont({
+  src: "../../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+  variable: "--font-pretendard",
+  weight: "45 920",
+  display: "swap",
 });
 
 export const metadata = {
@@ -21,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body className={clsx(plusJakartaSans.variable, spaceGrotesk.variable)}>
+      <body className={pretendard.variable}>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

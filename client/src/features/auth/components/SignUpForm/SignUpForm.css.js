@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 export const form = style({
-  marginTop: 20,
+  marginTop: 24,
   display: "grid",
-  gap: 14,
+  gap: 18,
 });

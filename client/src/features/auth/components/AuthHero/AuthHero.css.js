@@ -3,50 +3,73 @@ import { style } from "@vanilla-extract/css";
 export const hero = style({
   position: "relative",
   zIndex: 1,
-  padding: "clamp(16px, 1vw, 24px) 0",
+  paddingTop: 8,
 });
 
 export const kicker = style({
-  display: "inline-flex",
-  alignItems: "center",
-  padding: "8px 14px",
-  borderRadius: 999,
-  background: "rgba(37, 99, 235, 0.10)",
-  color: "var(--color-primary-600)",
-  fontSize: 12,
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
+  fontSize: 15,
   fontWeight: 700,
+  color: "var(--color-primary-500)",
+});
+
+export const title = style({
+  marginTop: 12,
+  fontSize: "clamp(28px, 3.6vw, 40px)",
+  fontWeight: 700,
+  lineHeight: 1.35,
+  letterSpacing: "-0.025em",
+  color: "var(--color-grey-900)",
 });
 
 export const statusCard = style({
-  marginTop: 28,
-  borderRadius: 18,
-  padding: 18,
-  background: "rgba(255, 255, 255, 0.86)",
-  border: "1px solid rgba(37, 99, 235, 0.16)",
-  backdropFilter: "blur(10px)",
+  marginTop: 36,
+  borderRadius: 24,
+  padding: "24px 24px 26px",
+  background: "var(--color-surface)",
+  boxShadow: "var(--shadow-card)",
 });
 
 export const statusCardTitle = style({
-  fontSize: 12,
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
-  color: "rgba(30, 64, 175, 0.86)",
+  fontSize: 15,
+  fontWeight: 500,
+  color: "var(--color-grey-600)",
 });
 
 export const statusText = style({
+  vars: {
+    "--status-dot": "var(--color-grey-400)",
+  },
   marginTop: 10,
-  fontSize: 14,
-  fontWeight: 600,
-  color: "rgba(15, 23, 42, 0.92)",
-  lineHeight: 1.4,
+  display: "flex",
+  alignItems: "flex-start",
+  gap: 10,
+  fontSize: 24,
+  fontWeight: 700,
+  lineHeight: 1.35,
+  letterSpacing: "-0.02em",
+  color: "var(--color-grey-900)",
+  overflowWrap: "anywhere",
+  "::before": {
+    content: '""',
+    flexShrink: 0,
+    width: 10,
+    height: 10,
+    marginTop: "calc((1.35em - 10px) / 2)",
+    borderRadius: "50%",
+    background: "var(--status-dot)",
+  },
 });
 
 export const statusError = style({
-  color: "#b91c1c",
+  vars: {
+    "--status-dot": "var(--color-danger-500)",
+  },
+  color: "var(--color-danger-500)",
 });
 
 export const statusSuccess = style({
-  color: "var(--color-primary-700)",
+  vars: {
+    "--status-dot": "var(--color-primary-500)",
+  },
+  color: "var(--color-primary-500)",
 });
